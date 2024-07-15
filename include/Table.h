@@ -1,5 +1,5 @@
-#ifndef TABLE_H
-#define TABLE_H
+#ifndef INCLUDE_TABLE_H_
+#define INCLUDE_TABLE_H_
 
 #include "Card.h"
 #include "Player.h"
@@ -9,7 +9,7 @@ class Player;
 
 enum class Phase : value { flop, turn, river };
 
-inline Phase &operator++(Phase &p) {
+inline Phase &operator++(Phase &p) { // NOLINT
   if (p == Phase::river) {
     p = Phase::flop;
   } else {
@@ -34,4 +34,4 @@ class Table {
   Phase _phase;
 };
 
-#endif // TABLE_H
+#endif // INCLUDE_TABLE_H_

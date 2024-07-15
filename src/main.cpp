@@ -26,7 +26,7 @@ int main() {
     // TODO reset deck when empty
   }
 
-  // print_report(player);
+  Player::print_report(std::cout, &player);
 
   return 0;
 }

@@ -1,0 +1,11 @@
+src/main.cpp:25:    // TODO clever deck-reuse
+src/main.cpp:26:    // TODO reset deck when empty
+src/Player.cpp:21:// TODO rewrite searches to use _card_list_Values
+src/Player.cpp:49:      // TODO 2,3x counting... what if we hit a royal flush on the flop?
+src/Player.cpp:57:  // TODO more efficient recognition algorithm
+src/Player.cpp:68:        // TODO 2,3x counting... what if we hit a straight flush on the flop?
+src/Player.cpp:77:  // TODO more efficient recognition algorithm
+src/Player.cpp:101:  // TODO more efficient recognition algorithm
+src/Player.cpp:161:// TODO ace is both 1 and 14 ...
+src/Player.cpp:163:// TODO rethink loop limits, are we checking everything?
+src/Player.cpp:254:  // TODO separate flop, turn, river

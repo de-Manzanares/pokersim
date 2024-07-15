@@ -1,5 +1,5 @@
-#ifndef DECK_H
-#define DECK_H
+#ifndef INCLUDE_DECK_H_
+#define INCLUDE_DECK_H_
 
 #include "Card.h"
 #include "Player.h"
@@ -51,4 +51,4 @@ template <> inline void Deck::deal_to<Table>(Table *table) {
   ++table->phase();
 }
 
-#endif // DECK_H
+#endif // INCLUDE_DECK_H_

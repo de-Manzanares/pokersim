@@ -36,7 +36,8 @@ std::ostream &operator<<(std::ostream &strm, const Card &card) {
     case static_cast<value>(Value::ace):
       strm << 'A';
       break;
-    default:;
+    default: {
+    }
     }
   }
   strm << card.suit();

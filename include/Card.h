@@ -1,12 +1,35 @@
-#ifndef CARD_H
-#define CARD_H
+#ifndef INCLUDE_CARD_H_
+#define INCLUDE_CARD_H_
 
 #include <ostream>
 
 typedef uint64_t value;
 
 enum class Suit : value { club, diamond, heart, spade };
-enum class Value : value { ace = 1, jack = 11, queen, king };
+enum class Value : value {
+  ace = 1,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  jack = 11,
+  queen,
+  king
+};
+
+inline Value &operator--(Value &val) { // NOLINT
+  if (val == Value::ace) {
+    val = Value::king;
+  } else {
+    val = static_cast<Value>(static_cast<value>(val) - 1);
+  }
+  return val;
+}
 
 class Card {
  public:
@@ -23,4 +46,4 @@ class Card {
   value _val;
 };
 
-#endif // CARD_H
+#endif // INCLUDE_CARD_H_
