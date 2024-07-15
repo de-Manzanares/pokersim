@@ -4,7 +4,8 @@ project(pokersim)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(pokersim src/main.cpp
-        src/Card.hpp
-        src/Deck.hpp
-        src/Player.hpp
-        src/Table.hpp)
+        src/Card.cpp
+        src/Deck.cpp
+        src/Player.cpp
+        src/Table.cpp)
+target_include_directories(pokersim PRIVATE ./include)

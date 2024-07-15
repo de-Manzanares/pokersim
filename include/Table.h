@@ -1,10 +1,11 @@
 #ifndef TABLE_H
 #define TABLE_H
 
+#include "Card.h"
+#include "Player.h"
 #include <vector>
 
 class Player;
-typedef uint64_t value;
 
 enum class Phase : value { flop, turn, river };
 
@@ -32,20 +33,5 @@ class Table {
   std::vector<Player> _opponents;
   Phase _phase;
 };
-
-inline Table::Table(const std::size_t player_count) {
-  for (auto i = 0; i < player_count; ++i) {
-    _opponents.emplace_back();
-  }
-  _phase = Phase::flop;
-}
-
-inline std::vector<Player> const &Table::opponents() const {
-  return _opponents;
-}
-
-inline std::vector<Card> const &Table::cards() const {
-  return _community_cards;
-}
 
 #endif // TABLE_H

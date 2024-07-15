@@ -1,18 +1,13 @@
-#ifndef DECK_HPP
-#define DECK_HPP
+#ifndef DECK_H
+#define DECK_H
 
-#include "Player.hpp"
-#include "Table.hpp"
-
-#include <algorithm>
-#include <cassert>
-#include <random>
+#include "Card.h"
+#include "Player.h"
 #include <vector>
 
 class Deck {
  public:
   Deck();
-  Deck &operator=(const Deck &rhs);
   void shuffle();
   Card deal();
   template <typename T> void deal_to(T *);
@@ -24,37 +19,6 @@ class Deck {
   std::vector<Card> _cards;
   std::vector<Card>::iterator _it;
 };
-
-inline Deck::Deck() {
-  for (auto suit :
-       std::vector{Suit::club, Suit::diamond, Suit::heart, Suit::spade}) {
-    for (auto val = 1; val < 14; ++val) {
-      _cards.emplace_back(suit, val);
-    }
-  }
-  _it = _cards.begin();
-}
-
-inline Deck &Deck::operator=(const Deck &rhs) {
-  if (this != &rhs) {
-    this->_cards = rhs._cards;
-    _it = _cards.end() - 1;
-  }
-  return *this;
-}
-
-inline void Deck::shuffle() {
-  std::random_device rd;
-  std::mt19937 mt(rd());
-  std::ranges::shuffle(_cards, mt);
-}
-
-inline Card Deck::deal() {
-  assert(_it != _cards.end());
-  const Card card = *_it;
-  ++_it;
-  return card;
-}
 
 template <typename T> void Deck::deal_to(T *) {
   static_assert(std::is_same_v<T, Player> ||
@@ -81,10 +45,10 @@ inline void Deck::deal_to<std::vector<Player>>(std::vector<Player> *players) {
 template <> inline void Deck::deal_to<Table>(Table *table) {
   std::size_t n_cards;
   table->phase() == Phase::flop ? n_cards = 3 : n_cards = 1;
-  for (auto i = 0; i < n_cards; ++i) {
+  for (std::size_t i = 0; i < n_cards; ++i) {
     table->cards().emplace_back(this->deal());
   }
   ++table->phase();
 }
 
-#endif // DECK_HPP
+#endif // DECK_H

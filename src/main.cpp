@@ -1,7 +1,5 @@
-#include "Deck.hpp"
-#include "Player.hpp"
-#include "Table.hpp"
-
+#include "Deck.h"
+#include "Table.h"
 #include <iostream>
 
 int main() {
