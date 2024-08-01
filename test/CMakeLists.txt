@@ -9,7 +9,17 @@ target_link_libraries(test-card
         card
         Catch2::Catch2WithMain)
 
+add_executable(test-deck)
+target_sources(test-deck
+        PUBLIC
+        ${PROJECT_SOURCE_DIR}/test/test-deck.cxx)
+target_link_libraries(test-deck
+        PUBLIC
+        deck
+        Catch2::Catch2WithMain)
+
 include(CTest)
 include(Catch)
 
 add_test(NAME TestCard COMMAND test-card)
+add_test(NAME TestDeck COMMAND test-deck)
