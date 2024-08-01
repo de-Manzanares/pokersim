@@ -2,6 +2,7 @@ module;
 
 #include <map>
 #include <ostream>
+#include <string>
 
 export module Card;
 
@@ -29,11 +30,12 @@ export class Card {
   friend std::ostream &operator<<(std::ostream &os, Card const &card);
 
  private:
-  int const _value;
-  Suit const _suit;
+  int _value;
+  Suit _suit;
 };
 
-std::ostream &operator<<(std::ostream &os, Card const &card) {
+
+export std::ostream &operator<<(std::ostream &os, Card const &card) {
   if (card._value > 9 || card._value == 1) {
     os << card_val_to_char[card._value];
   } else {
