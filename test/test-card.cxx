@@ -4,6 +4,8 @@
 import Card;
 
 TEST_CASE("bruh") {
+  std::cout << "Size of `int *`: " << sizeof(int *) << '\n';
+  std::cout << "Size of `Card`: " << sizeof(Card) << '\n';
   std::vector<Card> cards;
   cards.reserve(52);
   for (int i = 0; i < 4; ++i) {
